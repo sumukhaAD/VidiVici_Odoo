@@ -1,8 +1,8 @@
+import Directory from './Directory';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function Login() { return <h1>Login Page</h1> }
 function Signup() { return <h1>Signup Page</h1> }
-function Directory() { return <h1>Employee Directory</h1> }
 function EmployeeProfile() { return <h1>Employee Profile (view-only)</h1> }
 function MyProfile() { return <h1>My Profile</h1> }
 function Attendance() { return <h1>Attendance</h1> }
