@@ -1,1 +1,36 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Manrope', 'Inter', ui-sans-serif, sans-serif;
+  --color-canvas: #f6f7fb;
+  --color-ink: #1a1d33;
+  --color-ink-soft: #5b6072;
+  --color-ink-faint: #9095a6;
+  --color-primary: #31399b;
+  --color-primary-fg: #ffffff;
+  --color-primary-soft: #eceef8;
+  --color-primary-hover: #282f83;
+  --color-accent: #f2994a;
+  --color-accent-fg: #ffffff;
+  --color-accent-soft: #fdf0e3;
+  --color-hairline: #e7e9f2;
+  --color-status-green: #1f9d63;
+  --color-status-green-soft: #e5f5ec;
+  --color-status-amber: #d98722;
+  --color-status-amber-soft: #fbeedb;
+  --color-status-red: #dc3d47;
+  --color-status-red-soft: #fbe6e7;
+  --color-status-gray: #6b7185;
+  --color-status-gray-soft: #eef0f5;
+  --radius-card: 12px;
+}
+html {
+  font-family: var(--font-sans);
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  margin: 0;
+}

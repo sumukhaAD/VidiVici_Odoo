@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchAllEmployees } from '../utils/employeeQueries.js'; 
+import { fetchAllEmployees } from './utils/employeeQueries.js'; 
 import EmployeeCard from './EmployeeCard.jsx'; // Import the new card component
 
 export default function Directory() {
