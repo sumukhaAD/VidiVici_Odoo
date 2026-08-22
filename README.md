@@ -1,6 +1,9 @@
 # VidiVici Odoo — Human Resource Management System
 
 > A full-stack HRMS built for the **Odoo Hackathon**, centralizing employee management, attendance tracking, payroll, and time-off through a React + Supabase web application.
+>
+https://vidivici-navy.vercel.app/
+
 
 ---
 
