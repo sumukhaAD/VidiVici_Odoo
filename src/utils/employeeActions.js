@@ -17,10 +17,10 @@ export async function addEmployee(employeeData) {
 
   // 2. Generate the Login ID (Assume company code is provided or hardcoded)
   const loginId = generateLoginId(
-    employeeData.companyCode || '0C2I', 
-    employeeData.firstName, 
-    employeeData.lastName, 
-    currentYear, 
+    employeeData.companyCode || '0C2I',
+    employeeData.firstName,
+    employeeData.lastName,
+    currentYear,
     serialNumber
   );
 
@@ -33,12 +33,13 @@ export async function addEmployee(employeeData) {
       email: employeeData.email,
       department: employeeData.department,
       mobile: employeeData.mobile,
-      role: employeeData.role || 'employee',
+      role: employeeData.role || 'employee'
       // Add wage/salary fields here if the form collects them
     }])
     .select();
 
   if (insertError) throw insertError;
+
   // 4. Allocate default time-off for the new employee
   const { error: allocationError } = await supabase
     .from('time_off_allocations')
@@ -51,5 +52,23 @@ export async function addEmployee(employeeData) {
   if (allocationError) {
     console.error("Failed to allocate time off, but employee was created:", allocationError);
   }
+
+  return data[0];
+}
+
+// 5. Employee: Update their own limited profile fields
+export async function updateMyProfile(employeeId, updateData) {
+  const { data, error } = await supabase
+    .from('employees')
+    .update({
+      mobile: updateData.mobile,
+      // Ensure you add these columns to your Supabase table if they don't exist yet!
+      address: updateData.address, 
+      profile_picture_url: updateData.profilePictureUrl
+    })
+    .eq('id', employeeId)
+    .select();
+
+  if (error) throw error;
   return data[0];
 }
