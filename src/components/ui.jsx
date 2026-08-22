@@ -138,16 +138,18 @@ export function StatusBadge({ status, className = "" }) {
 
 /* ---------- Avatar ---------- */
 export function Avatar({ name, src, size = 40 }) {
+  const [failed, setFailed] = useState(false);
   const initials = name
     .split(" ")
     .map((n) => n[0])
     .slice(0, 2)
     .join("");
-  if (src) {
+  if (src && !failed) {
     return (
       <img
         src={src}
         alt={name}
+        onError={() => setFailed(true)}
         style={{ width: size, height: size }}
         className="rounded-full object-cover bg-primary-soft"
       />

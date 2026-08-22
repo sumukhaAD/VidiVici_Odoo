@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, CartesianGrid } from "recharts";
 import { Button, Card, StatusBadge, Avatar, Field, Input, PasswordInput } from "./ui";
-import { PageHeader } from "./PageHeader";
+import { PageHeader } from "./Shell";
 
 function formatINR(n) {
   return `₹${n.toLocaleString("en-IN")}`;
