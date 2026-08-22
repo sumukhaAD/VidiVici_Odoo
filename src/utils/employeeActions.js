@@ -39,5 +39,17 @@ export async function addEmployee(employeeData) {
     .select();
 
   if (insertError) throw insertError;
+  // 4. Allocate default time-off for the new employee
+  const { error: allocationError } = await supabase
+    .from('time_off_allocations')
+    .insert([{
+      employee_id: data[0].id,
+      paid_time_off_days: 24,
+      sick_leave_days: 7
+    }]);
+
+  if (allocationError) {
+    console.error("Failed to allocate time off, but employee was created:", allocationError);
+  }
   return data[0];
 }
